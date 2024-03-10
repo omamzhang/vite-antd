@@ -1,9 +1,12 @@
 // src/router/index.tsx
+import { lazy } from 'react';
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
-import Home from '@/pages/Home'
-import About from '@/pages/About'
-import Todo from '@/pages/Todo'
+import lazyLoader from './lazyLoader'
+
+const Home = lazy(() => import('@/pages/Home'));
+const About = lazy(() => import('@/pages/About'));
+const Todo = lazy(() => import('@/pages/Todo'));
 
 const routes: RouteObject[] = [
   {
@@ -15,15 +18,15 @@ const routes: RouteObject[] = [
       },
       {
         path: 'home',
-        element: <Home />,
+        element: lazyLoader(Home),
       },
       {
         path: 'about',
-        element: <About />,
+        element: lazyLoader(About),
       },
       {
         path: 'todo',
-        element: <Todo />,
+        element: lazyLoader(Todo),
       },
     ],
   },
