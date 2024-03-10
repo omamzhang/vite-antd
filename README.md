@@ -28,3 +28,13 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+# Todo
+- [×] 前端框架 react-ts
+- [×] css构建 Less
+- [×] 页面路由 react-router6
+- [×] 页面组件 antD  https://ant.design/docs/react/use-with-vite-cn
+- [] 同步数据 全局
+- [] 异步数据 axios
+- [] 国际化处理 i18n
+- [] 日期处理 dayjs  https://day.js.org/docs/zh-CN/i18n/i18n
