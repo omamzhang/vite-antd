@@ -1,5 +1,5 @@
 // src/pages/Home/index.tsx
-import { Button, ConfigProvider, Space } from 'antd';
+import { Button, ConfigProvider, Space, Calendar } from 'antd';
 import useCounterStore from '@/stores/counter'
 
 
@@ -7,11 +7,16 @@ const Home = () => {
   const counter = useCounterStore((state) => state.counter)
   const increase = useCounterStore((state) => state.increase)
 
-  return  <Space>
-      <div>Home Page</div>
-    <button onClick={() => increase(1)}> counter: {counter} </button>
-    <Button type="primary">Primary</Button>
-  </Space>
+  return <>
+    <Space>
+      <h2>Home Page</h2>
+      <div>
+        <button onClick={() => increase(1)}>global counter: {counter} </button>
+        <Button type="primary">Primary</Button>
+      </div>
+      </Space>
+      <Calendar  fullscreen={false} />
+  </>
 }
 
 export default Home

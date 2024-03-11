@@ -3,8 +3,9 @@ import { useState } from 'react'
 import { RouterProvider } from 'react-router-dom'
 import router from './router'
 import useCounterStore from '@/stores/counter'
+import useGlobalStore from './stores/global'
 
-import { ConfigProvider } from 'antd'
+import { ConfigProvider, Calendar, Space } from 'antd'
 import dayjs from 'dayjs'
 import zhCN from 'antd/locale/zh_CN'
 import 'dayjs/locale/zh-cn'
@@ -14,14 +15,18 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.less'
 
+dayjs.locale('zh-cn');
+
 function App() {
   const [count, setCount] = useState(0)
-  const primaryColor = '#f69';
+
+  const primaryColor = useGlobalStore((state) => state.primaryColor);
+  const themeKey = useGlobalStore((state) => state.themeKey);
+  const changeTheme = useGlobalStore((state) => state.changeTheme);
 
   const counter = useCounterStore((state) => state.counter)
   const increase = useCounterStore((state) => state.increase)
 
-  
   return (
     <>
       <div>
@@ -32,9 +37,11 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <button onClick={() => increase(1)}> counter: {counter} </button>
       <h1>Hi, Vite + React</h1>
+      {/* <Calendar fullscreen={false} /> */}
       <div className="card">
+        <button onClick={() => changeTheme('custome')}> changeTheme: {themeKey} </button>
+        <button onClick={() => increase(1)}> global counter: {counter} </button>
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
