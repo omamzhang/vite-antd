@@ -34,7 +34,8 @@ export default {
 - [×] css构建 Less
 - [×] 页面路由 react-router6
 - [×] 页面组件 antD  https://ant.design/docs/react/use-with-vite-cn
-- [] 同步数据 全局 // zustand
+- [] 同步数据 全局业务 // zustand
+- [] 同步数据 全局环境
 - [] 异步数据 axios
 - [] 异步数据 mock
 - [] 国际化处理 i18n
