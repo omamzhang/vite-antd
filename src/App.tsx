@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import { RouterProvider } from 'react-router-dom'
 import router from './router'
+import useCounterStore from '@/stores/counter'
 
 import { ConfigProvider } from 'antd'
 import dayjs from 'dayjs'
@@ -17,6 +18,10 @@ function App() {
   const [count, setCount] = useState(0)
   const primaryColor = '#f69';
 
+  const counter = useCounterStore((state) => state.counter)
+  const increase = useCounterStore((state) => state.increase)
+
+  
   return (
     <>
       <div>
@@ -27,6 +32,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
+      <button onClick={() => increase(1)}> counter: {counter} </button>
       <h1>Hi, Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
