@@ -5,7 +5,7 @@ import createPluginImport from "vite-plugin-importer"
 
 const configDefault = {
   /* 基础配置 */
-  // root: './',
+  root: process.cwd(),
   // base: '',
   // publicDir: "public",
   /* UI配置 */
@@ -46,6 +46,15 @@ const configDefault = {
     strictPort: true, // 设为TRUE时若端口被占用会直接退出，FALSE会尝试下一个可用端口
     open: true, // 自动打开浏览器；当此值为字符串时，会被用作 URL 的路径名
   },
+}
+
+const configBuild = {
+  target: 'modules',
+  modulePreload: true, // polyfill 自动注入
+  outDir: `dist`,
+  lib: {
+    entry: ``
+  }
 }
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {

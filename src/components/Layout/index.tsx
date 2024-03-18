@@ -1,25 +1,22 @@
+/*
+ * @Author: zyl omamzhange@gmail.com
+ * @Date: 2024-03-12 12:01:15
+ * @LastEditors: zyl omamzhange@gmail.com
+ * @LastEditTime: 2024-03-13 21:43:13
+ * @FilePath: /vite-antd/src/components/Layout/index.tsx
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 // src/components/Layout/index.tsx
 import { useState } from 'react'
 import { Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { Button, Layout, Menu } from 'antd'
 import type { MenuProps } from 'antd'
+import { BusinessPagesPath } from '@/router'
+
 
 const { Header, Sider, Content } = Layout
 
-const items: MenuProps['items'] = [
-  {
-    label: 'home',
-    path: '/home',
-  },
-  {
-    label: 'about',
-    path: '/about',
-  },
-  {
-    label: 'todo',
-    path: '/todo',
-  },
-].map((nav) => ({
+const items: MenuProps['items'] = BusinessPagesPath.map((nav) => ({
   key: nav.path,
   icon: null,
   label: nav.label,
